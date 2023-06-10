@@ -31,7 +31,7 @@ txtPortalPrice:Show()
 
 txtPortalPrice:SetScript("OnShow", function(frame)
 local text = tonumber(EPAConfig.PortalPrice)
-	txtPortalPrice:SetText(tostring(text))
+	txtPortalPrice:SetText(text)
 end)
 
 txtPortalPrice:SetScript("OnEnter", function(self)
@@ -41,7 +41,7 @@ txtPortalPrice:SetScript("OnEnter", function(self)
 end)
 txtPortalPrice:SetScript("OnLeave", GameTooltip_Hide)
 txtPortalPrice:SetScript("OnHide", function(frame)
-	local n = tonumber(frame:GetText())
+	local n = tonumber(txtPortalPrice:GetText())
 	EPAConfig.PortalPrice = n
 	--createadvert()
 end)
@@ -57,16 +57,16 @@ txtTradeChannel:SetPoint("LEFT", lblTradeChannelText, "RIGHT", 16, 0)
 txtTradeChannel:SetAutoFocus(false)
 txtTradeChannel:SetWidth(32)
 txtTradeChannel:SetHeight(16)
-txtTradeChannel:SetMaxLetters(3)
+txtTradeChannel:SetMaxLetters(6)
 txtTradeChannel:Show()
 
 txtTradeChannel:SetScript("OnShow", function(frame)
 local text = tonumber(EPAConfig.TradeChannel)
-	txtTradeChannel:SetText(tostring(text))
+	txtTradeChannel:SetText(text)
 end)
 
 txtTradeChannel:SetScript("OnHide", function(frame)
-	local n = tonumber(frame:GetText())
+	local n = tonumber(txtTradeChannel:GetText())
 	EPAConfig.TradeChannel = n
 end)
 
@@ -108,11 +108,7 @@ end)
 end
 
 local rmtitle = EPAIOFrame:CreateFontString(nil, nil, "GameFontNormalLarge")
-	if IsAddOnLoaded("EPA-CooldownMonitor") == false then
-		rmtitle:SetPoint("TOPLEFT", cdmtitle, "BOTTOMLEFT", 0, -48)
-	elseif IsAddOnLoaded("EPA-CooldownMonitor") == true then
-		rmtitle:SetPoint("TOPLEFT", chkReadySound, "BOTTOMLEFT", 0, -16)
-	end
+rmtitle:SetPoint("TOPLEFT", cdmtitle, "BOTTOMLEFT", 0, -48)
 rmtitle:SetText(L["Reagent Monitor"])
 
 if IsAddOnLoaded("EPA-ReagentMonitor") == false then
