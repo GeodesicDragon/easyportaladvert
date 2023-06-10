@@ -1,0 +1,15 @@
+<Ui xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
+<Script file=".\wotlk\Localization.lua"/>
+<Script file=".\wotlk\alliance\darnassus.lua"/>
+<Script file=".\wotlk\alliance\exodar.lua"/>
+<Script file=".\wotlk\alliance\ironforge.lua"/>
+<Script file=".\wotlk\alliance\shattrath.lua"/>
+<Script file=".\wotlk\alliance\stormwind.lua"/>
+<Script file=".\wotlk\alliance\theramore.lua"/>
+<Script file=".\wotlk\horde\orgrimmar.lua"/>
+<Script file=".\wotlk\horde\shattrath.lua"/>
+<Script file=".\wotlk\horde\silvermoon.lua"/>
+<Script file=".\wotlk\horde\stonard.lua"/>
+<Script file=".\wotlk\horde\thunderbluff.lua"/>
+<Script file=".\wotlk\horde\undercity.lua"/>
+</Ui>

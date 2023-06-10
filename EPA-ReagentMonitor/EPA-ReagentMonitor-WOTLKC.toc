@@ -1,0 +1,7 @@
+##Interface: 30401
+##Title: |cFFFFFF00EPA - Reagent Monitor|r (Wrath)
+##Notes: Shows you how many Mage related reagents you have.
+##RequiredDeps: EasyPortalAdvert
+##Author: GeodesicDragon
+
+EPA-ReagentMonitor-Wrath.lua

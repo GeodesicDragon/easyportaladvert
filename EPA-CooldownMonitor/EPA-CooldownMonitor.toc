@@ -1,0 +1,8 @@
+##Interface: 100100
+##Title: |cFFFFFF00EPA - Cooldown Monitor|r (Retail)
+##Notes: Notifies you when portals and other items finish their cooldowns.
+##RequiredDeps: EasyPortalAdvert
+##Author: GeodesicDragon
+##Version: 8.0.0
+
+retail/EPA-CooldownMonitor.xml

@@ -1,0 +1,8 @@
+##Interface: 30401
+##Title: |cFFFFFF00EPA - Cooldown Monitor|r (Wrath)
+##Notes: Notifies you when portals and other items finish their cooldowns.
+##RequiredDeps: EasyPortalAdvert
+##Author: GeodesicDragon
+##Version: 8.0.0
+
+wotlk/EPA-CooldownMonitor.xml

@@ -1,0 +1,685 @@
+== Version 8.0.0 (June 1st 2023) ==
+
+* Bumped Retail TOCs to 100100.
+* Added WOTLK Classic support.
+* The Reagent Alert plugin is back, with a new name, but only for WOTLK Classic.
+* Removed redundant lib files.
+* (NYI) Removed redundant XML files.
+* Fixed alignment of items in options menu.
+* Removed the /epa info command.
+* Removed the /epa help command.
+
+== Version 7.7.33 (March 23rd 2023) ==
+
+* Bumped TOCs to 100007.
+
+== Version 7.7.31 (November 29th 2022) ==
+
+* Bumped TOCs to 100002.
+* Fixed the cooldown of Portal: Valdrakken not being checked properly.
+
+== Version 7.7.28 (October 29th 2022) ==
+
+* Bumped TOCs to 100000.
+* Added Portal: Valdrakken to Cooldown Monitor.
+
+== Version 7.6.26 (August 20th 2022) ==
+
+* Bumped TOCs to 90207.
+
+== Version 7.6.24 (June 1st 2022) ==
+
+* Bumped TOCs to 90205.
+
+== Version 7.6.22 (March 26th 2022) ==
+
+* Bumped TOCs to 90200.
+
+== Version 7.6.20 (November 14th 2021) ==
+
+* Bumped TOCs to 90105.
+
+== Version 7.6.18 (March 19th 2021) ==
+
+* Bumped TOCs to 90005.
+* Added Portal: Oribos to Cooldown Monitor.
+
+== Version 7.5.16 (October 16th 2020) ==
+
+* Bumped TOCs to 90001.
+
+== Version 7.5.14 (January 22nd 2020) ==
+
+* Bumped TOCs to 80300.
+
+== Version 7.5.12 (September 29th 2019) ==
+
+* Bumped TOCs to 80205.
+
+== Version 7.5.10 (June 26th 2019) ==
+
+* Bumped TOCs to 80200.
+
+== Version 7.5.8 (December 14th 2018) ==
+
+* Bumped TOCs to 80100.
+* Added the talent version of Ebonbolt to Cooldown Monitor.
+* Added the talent version of Phoenix's Flames to Cooldown Monitor.
+
+== Version 7.3.6 (August 13th 2018) ==
+
+* Added Portal: Boralus to Cooldown Monitor.
+* Added Portal: Dazar'alor to Cooldown Monitor.
+
+== Version 7.1.6 (July 21st 2018) ==
+
+* Fixed the many errors about missing files which appeared on load.
+
+== Version 7.1.5 (July 19th 2018) ==
+
+* Bumped TOCs to 80000.
+
+== Version 7.1.3 (August 31st 2017) ==
+
+* Bumped TOCs to 70300.
+
+== Version 7.1.1 (May 17th 2017) ==
+
+* Moved the message about other arguments supported by the /epa command to the options window.
+* Added Frozen Orb to Cooldown Monitor.
+
+== Version 7.0.0 (May 8th 2017) ==
+
+* Added a proper options GUI, accessed via the /epa command.
+	* It's a bit crude at the moment; if you want to tidy it up, then be my guest.
+* Added Artifact abilities to Cooldown Monitor.
+	* Also added an option to disable cooldown alerts for them.
+* Removed all but one of the alert sounds.
+	
+== Version 6.5.73 (April 19th 2017) ==
+
+* Added Kil'jaeden's Burning Wish to Cooldown Monitor.
+* Added Blazing Barrier to Cooldown Monitor.
+* Added Prismatic Barrier to Cooldown Monitor.
+
+== Version 6.2.73 (April 16th 2017) ==
+
+* Fixed adverts not being created properly when using the Brazilian Portugese translation.
+
+== Version 6.2.72 (March 29th 2017) ==
+
+* Bumped TOCs to 70200.
+
+== Version 6.2.70 (December 3rd 2016) ==
+
+* Added Brazilian Portugese localisation.
+	** Many thanks to Markllan from Curse.com for providing translations.
+
+== Version 6.1.70 (December 3rd 2016) ==
+
+* Fixed localisation errors related to the following Alliance portals:
+	** Darnassus
+	** Exodar
+	** Ironforge
+	** Shattrath
+	** Stormshield
+	** Stormwind
+	** Theramore
+	** Tol Barad
+* Fixed localisation errors related to the following Horde portals:
+	** Orgrimmar
+	** Shattrath
+	** Silvermoon
+	** Stonard
+	** Thunder Bluff
+	** Tol Barad
+	** Undercity
+	** Warspear
+* Fixed localisation errors related to the following Alliance items:
+	** Shroud of Cooperation
+	** Wrap of Unity
+* Fixed localisation errors related to the following Horde items:
+	** Shroud of Cooperation
+	** Wrap of Unity
+* Fixed localisation errors related to the following non-faction specific spells:
+	** Ancient Portal: Dalaran
+	** Combustion
+	** Evocation
+	** Ice Barrier
+	** Icy Veins
+	** Mirror Image
+	** Teleport: Hall of the Guardian
+	** Time Warp
+	** Portal: Dalaran - Broken Isles
+	** Portal: Dalaran - Northrend
+	** Portal: Vale of Eternal Blossoms
+	** Water Elemental
+* Fixed localisation errors related to the following items:
+	** Hearthstone
+
+== Version 6.1.37 (October 26th 2016) ==
+
+* Bumped TOC to 70100.
+
+== Version 6.1.36 (October 10th 2016) ==
+
+* Fixed Lua error spam whenever Cooldown Monitor tried to report a spell as being ready.
+
+== Version 6.1.1 (October 8th 2016) ==
+
+* Removed the level requirement for using the ///epa create// command.
+* Added Hall of the Guardian (AKA Mage Class Hall) teleport to Cooldown Monitor.
+
+== Version 6.0.0 (September 16th 2016) ==
+
+* Added Localization support (at long last).
+	** Added French localization.
+	** Added German localization.
+	** To help translate EPA, please refer to the instructions in the Localizaion.lua file.
+* Adverts are no longer auto-created at certain levels.
+* Changed the /all command to /price.
+
+== Version 5.56.117 (August 31st 2016) ==
+
+* Added Vale of Eternal Blossoms portal to Cooldown Monitor (two expansions late).
+* Added Broken Isles Dalaran portal to Cooldown Monitor.
+* Bumped TOCs to 70000 (for real this time).
+
+== Version 5.54.117 (August 24th 2016) ==
+
+* Added Counterspell to Cooldown Monitor.
+* Added Ice Barrier to Cooldown Monitor.
+* Removed Conjure Refreshment from Cooldown Monitor.
+* Removed Cold Snap from Cooldown Monitor.
+* Removed Conjure Familiar from Cooldown Monitor.
+* Removed The Innkeeper's Daughter from Cooldown Monitor (for real this time).
+
+== Version 5.52.114 (July 21st 2016) ==
+
+**IT IS HIGHLY RECOMMENDED THAT YOU CLEAR YOUR SAVED VARIABLES USING THE CURSE CLIENT AFTER INSTALLING THIS UPDATE**
+
+* Bumped TOCs to 70000.
+* The Whispers plugin has been removed.
+* The Refreshments plugin has been removed.
+* Added the ability to set 'PWYW' (Pay What You Want) as a price option for portals.
+	** Can be set using ///all PWYW// (not case sensitive).
+
+== Version 5.49.112 (December 12th 2015) ==
+
+**IT IS HIGHLY RECOMMENDED THAT YOU CLEAR YOUR SAVED VARIABLES USING THE CURSE CLIENT AFTER INSTALLING THIS UPDATE**
+
+* Since I don't know anyone who charges separate prices for portals, individual pricing commands have been removed. From now on, all prices can be set using the /all command.
+* Added Ancient Portal: Dalaran to Cooldown Monitor.
+* Removed Leyara's Locket from Cooldown Monitor.
+* Removed The Innkeeper's Daughter from Cooldown Monitor.
+* Removed The Last Relic of Argus from Cooldown Monitor.
+* Fixed the '/all' command not recognising an input of '0' to mean 'Free.'
+
+== Version 5.45.111 (June 26th 2015) ==
+
+* Bumped TOCs to 60200.
+
+== Version 5.45.107 (June 2nd 2015) ==
+
+* Changed the way adverts are created and stored.
+* You can now use '0' as an argument when setting the price of all your portals at once. This will set the prices to 'Free.'
+* Fixed EPA not picking up on free portals to Stormshield/Warspear.
+
+== Version 5.43.106 (May 30th 2015) ==
+
+* Fixed adverts not showing all available portals at Level 100.
+* Fixed a spelling mistake in help.
+* Fixed the Cooldown Monitor reporting that The Innkeeper's Daughter had also finished its cooldown alongside your Hearthstone.
+* Fixed the Plugin Checker reporting plugins as disabled when they weren't.
+* Added Stormshield and Warspear to adverts.
+	** Use /ashran <number> to set your price (also accepts the 'Free' argument).
+* Removed everything related to return journeys.
+* Removed everything related to going to the person wanting the portal.
+	** Chances are you'll need to teleport to them anyway, so having this in the addon is redundant.
+* Removed anything related to charging on a per-person basis.
+* The Whispers plugin no longer does a /who on people whispering your keyword to you, because it never worked.
+
+== Version 5.39.102 (February 28th 2015) ==
+
+* Bumped TOCs to 60100.
+
+== Version 5.39.98 (December 13th 2014) ==
+
+* Added Portal: Stormshield to Cooldown Monitor.
+* Added Portal: Warspear to Cooldown Monitor.
+* Added Conjured Mana Fritters to the Refreshments plugin.
+* The Refreshments plugin no longer mentions Conjured Mana Biscuits.
+* The Refreshments plugin no longer tells you when you learn Conjure Refreshment and Conjure Refreshment Table.
+
+== Version 5.36.96 (November 6th 2014) ==
+
+* Bumped TOCs to 60000.
+
+== Version 5.36.92 (September 11th 2013) ==
+
+* Bumped TOCs to 50400.
+
+== Version 5.36.88 (June 9th 2013) ==
+
+* Bumped TOCs to 50300.
+
+== Version 5.36.84 (March 7th 2013) ==
+
+* Bumped TOCs to 50200.
+
+== Version 5.36.80 (November 29th 2012) ==
+
+* Bumped TOCs to 50100.
+
+== Version 5.36.76 (November 4th 2012) ==
+
+* Added missing Vale of Eternal Blossoms price to information screen.
+* Fixed /vale command not working.
+
+== Version 5.36.74 (October 15th 2012) ==
+
+* Fixed "'then' expected near '='" error.
+
+== Version 5.36.73 (October 15th 2012) ==
+
+* Fixed an error in the TOC file.
+* Added Vale of Eternal Blossoms. Set price using /vale <number>.
+* Added Conjured Mana Puddings to Refreshments plugin.
+
+== Version 5.34.72 (September 9th 2012) ==
+
+* Fixed 'For x% extra...' appearing in adverts for free portals.
+* Added Conjure Familiar to Cooldown Monitor.
+
+== Version 5.33.71 (August 28th 2012) ==
+
+NOTICE: Several SavedVariables have been removed due to them being obsolete. It is STRONGLY SUGGESTED that you delete EPA's SavedVariables using the Curse Client prior to starting WoW.
+
+* Bump TOC to 50001.
+* The Reagent Alert plugin has been removed.
+* The New Portal Notifier plugin has been removed.
+* Fixed grammar error in adverts sent when you have the Whispers plugin disabled.
+
+== Version 5.32.70 (July 1st 2012) ==
+
+* Updated all TOC files to reflect my recent realm transfer.
+* Removed all references to the removed /epa contact command.
+
+== Version 5.32.63 (June 15th 2012) ==
+
+* I've reverted to the old method of creating adverts, since the new way was too buggy.
+* Changed /epa rjt to /epa ret.
+
+I STRONGLY ADVISE YOU TO DELETE YOUR SAVED VARIABLES BEFORE (OR AFTER) INSTALLING THIS UPDATE.
+
+== Version 5.31.62 (June 12th 2012) ==
+
+* Fixed advert not updating properly when all portals are set to Free.
+
+== Version 5.31.61 (June 11th 2012) ==
+
+* Fixed advert not updating properly when the price of all your portals was set to Free.
+* Fixed advert not being created at Level 42.
+* Fixed a rare bug which prevented you from setting options (thanks to daemonseed80 for bringing it to my attention).
+
+== Version 5.31.58 (June 9th 2012) ==
+
+* Added Leyara's Locket to Cooldown Monitor.
+* Reagent Alert no longer triggers when you enter the world.
+
+== Version 5.30.57 (May 28th 2012) ==
+
+* Fixed some grammatical errors in adverts.
+* The /all command now accepts 'free' as an argument. In other words, it no longer matters if you capitalise the 'F' or not.
+
+== Version 5.30.55 (May 10th 2012) ==
+
+* Fixed advert not being updated when the 'Go To You' message is toggled.
+* Fixed advert not being updated when Return Journeys are toggled.
+* The /gty command has been changed to /epa gty.
+* The /rt command has been changed to /epa rjt.
+
+== Version 5.30.51 (May 6th 2012) ==
+
+* Fixed Whispers plugin showing prices to other Mages when it shouldn't.
+* Fixed Whispers plugin NOT showing prices to non-Mages when it should.
+* If all of your portals are free, your ad will now simply say 'Free Portals!'.
+* EPA now uses much less code to create and send your advert. I'm not sure if this will lower its memory usage.
+* Removed the /lz command. I feel that it's obsolete now, what with Hearthstones and those guild reward cloaks.
+* Removed contact info. If anyone wants it, it can be found on EPA's Curse page.
+
+== Version 5.27.48 (May 1st 2012) ==
+
+* Finally crushed the 'attempt to index global 'EPAConfig' (a nil value)' error spam once and for all (at least, it didn't show up while I was testing, after deleting my own Saved Variables.).
+
+== Version 5.27.47 (April 29th 2012) ==
+
+* Added The Innkeeper's Daughter to the Cooldown Monitor.
+* Added the Lost Relic of Argus to the Cooldown Monitor.
+* The Whispers plugin now accepts whispers from Mages who are below Level 42. This means that Mages who can't make portals yet can still get one from you.
+* Added a 'where applicable' message to ads. I don't charge a fee for Stonard or Tol Barad portals, and I was getting sick of people looking at my prices and then saying 'how much for a return journey from Stonard?'.
+	* The Whispers plugin will now mention this as well.
+
+== Version 5.25.44 (April 6th 2012) ==
+
+* If, like me, you charge for portals on a per-person basis, you can now specify this in whispers. This feature is off by default, and can be toggled using \\/epa pp\\.
+* The Whispers plugin now checks if the person whispering you is a Mage. If they are, they don't get to see your prices. This should stop other Mages from undercutting you.
+
+== Version 5.23.44 (March 31st 2012) ==
+
+* Fixed the 'attempt to index global 'EPAConfig' (a nil value)' error spam.
+* Updated contact info (again).
+* Updated info for Reagent Alert (what you see when you hover over it in the AddOns panel).
+* Updated info for Cooldown Monitor (what you see when you hover over it in the AddOns panel).
+* Updated info for the Whispers plugin (what you see when you hover over it in the AddOns panel).
+
+== Version 5.23.39 (March 18th 2012) ==
+
+* Added a command that allows you to set the price of all your portals to the same amount.
+	* USAGE: /all <amount>.
+	* Accepts 'Free' argument.
+* Added a message, sent when you reach Level 74, which informs you that you are able to use the Whispers plugin.
+* Updated contact info again.
+* Fixed massive Lua error spam when EPA is loaded on a non-mage character.
+* Adverts no longer say you are selling portals. They now say that portals are available. At least now nobody can tell you that 'Free' is not 'selling'.
+* Tweaked message sent when whispered your keyword.
+
+== Version 5.21.35 (March 13th 2012) ==
+
+* Changed advert used when the Whispers plugin is enabled.
+* If all your prices are set to 'Free', adverts will no longer mention your return message. Instead of 'For x% extra, I will do a return journey', it will simply say 'I also offer return journeys'.
+* Updated contact info again.
+
+== Version 5.21.32 (March 7th 2012) ==
+
+* Added a new plugin, EPA Whispers. This plugin allows people to send you a whisper containing a keyword (which is set by the user, default is '!portal'). Once this keyword is received, you will send an automatic reply telling them your prices. You must be Level 74 to use this plugin.
+	* If you have this plugin enabled, the /ad command will tell people to whisper you for a price list.
+* Added missing commands to help.
+
+== Version 4.20.31 (January 12th 2012) ==
+
+* Updated AceGUI files to the lastest version.
+* Updated LibStub files to the latest version.
+* Added Mirror Image to Cooldown Monitor.
+* Added Icy Veins to Cooldown Monitor.
+* Added Evocation to Cooldown Monitor.
+* Added Combustion to Cooldown Monitor.
+* Added Cold Snap to Cooldown Monitor.
+
+== Version 4.15.29 (November 29th 2011) ==
+
+* Fixed Cooldown Monitor appearing as Out of Date.
+* Fixed New Portal Notifier appearing as Out of Date.
+* Fixed Reagent Alert appearing as Out of Date.
+* Fixed Refreshments plugin appearing as Out of Date.
+
+== Version 4.15.25 (November 28th 2011) ==
+
+* Bumped TOC to 40300.
+* Updated the contact info to reflect recent changes to my characters.
+* Changed the Note for this addon (what you see when you hover over it in your addon list).
+
+== Version 4.15.22 (November 17th 2011) ==
+
+* Added Invisibility to Cooldown Monitor.
+* Added Summon Water Elemental to Cooldown Monitor.
+
+== Version 4.13.22 (November 4th 2011) ==
+
+* Added a plugin that tells you when your Conjure Refreshment spell creates better food.
+
+== Version 3.13.22 (August 9th 2011) ==
+
+* Added Time Warp to Cooldown Monitor.
+* Added Ritual of Refreshment to Cooldown Monitor.
+
+== Version 3.11.22 (June 29th 2011) ==
+
+* Bumped all TOCs to 40200.
+
+== Version 3.11.21 (May 30th 2011) ==
+
+* New Portal Notifier now does what it says it does.
+
+== Version 3.11.20 (May 29th 2011) ==
+
+* Added Shroud of Cooperation to Cooldown Monitor.
+* Added Wrap of Unity to Cooldown Monitor.
+* Updated /epa contact with my newest characters, and my website (not for children's eyes - you've been warned!).
+
+Also, regarding the false Reagent Alert messages being displayed when logging in - I have tried everything I can think of to stop this from happening, but all to no avail. Reagent Alert still works as normal. I think this message is being triggered as a result of events called on logging into the game. Until I work it out, you will have to put up with it. Sorry!
+
+== Version 3.9.19 (May 11th 2011) ==
+
+===IMPORTANT===
+
+You will need to clear all of EPA's Saved Variables, as I had to make some changes to them. If you don't, the whole thing will get confused. Apologies for this.
+
+* Reagent Alert now monitors your supply of Arcane Power. Use /ap <number> to set the alert point.
+* Reagent Alert will now let you set seperate alert points for Rune of Portals/Teleportation. Use /rop as normal for Rune of Portals, and /rot for Rune of Teleportation.
+* Fixed Reagent Alert telling you that you were low on a reagent well before it was supposed to.
+* Updated /epa info to be more ... informative.
+* Added a message, seen when you reach level 42, that informs you all of EPA's features have been unlocked.
+* Fixed 'attempt to concatenate a nil value' error when using /ad command.
+* Fixed /gty command not working as intended.
+* The /lz command no longer mentions Stonard at levels below 52.
+
+== Version 3.6.14 (May 2nd 2011) ==
+
+* The /lz command no longer works in Dalaran. There goes THAT great moneymaker.
+* The /lz command no longer works in Shattrath.
+* Fixed some grammar issues in the command list.
+
+== Version 3.6.11 (April 29th 2011) ==
+
+* Fixed Cooldown Monitor showing up as Out of Date.
+* Fixed New Portal Notifier showing up as Out of Date.
+* Fixed Reagent Alert showing up as Out of Date.
+
+== Version 3.6.8 (April 27th 2011) ==
+
+* Added support for Patch 4.1.0.
+* Added The Innkeeper's Daughter to the Cooldown Monitor.
+* Added a feature to specify in adverts whether or not you will go to the person wanting a portal. Not all mages do this, so it is off by default. Use /gty to toggle it.
+* Added a command to leave a party quickly: /lp.
+* Removed 'I am in <city name>' from adverts.
+* Horde adverts sent while your Mage is below level 52 will no longer mention Stonard.
+
+== Version 3.2.6 (April 3rd 2011) ==
+
+* Cooldown Monitor now monitors your Hearthstone's cooldown as well.
+* Reagent Alert now monitors your supply of Rune of Teleport. It will alert you when you have x Runes left, where x is the number specified in the /rop command.
+* Oh, and Happy Mother's Day.
+
+== Version 3.0.6 (March 16th 2011) ==
+
+* Fixed Lua error spam when loading EPA on a non-Mage character.
+* Changed some messages.
+* Renamed 'Cooldown Checker' to 'Cooldown Monitor'.
+* Renamed 'New Portals' to 'New Portal Notifier'.
+* The /epa command will now accept either the 'cost' or 'info' arguments to display your current settings.
+
+== Version 3.0.1 (March 12th 2011) ==
+
+* Fixed some minor errors in help and info screens.
+* The main features of EPA have been converted into seperate addons, so you can disable or enable them as you see fit.
+
+As well as the standard EasyPortalAdvert folder, the following new AddOn folders will have been created with this installation:
+
+* EPA-CooldownMonitor
+* EPA-ReagentAlert
+* EPA-NewPortalNotifier
+
+== Version 2.8.9 (March 9th 2011) ==
+
+* OK, NOW I've fixed the /epa info (formerly cost) and /epa help problem. Many, many, MANY apologies for this.
+* Added a contact frame. It can be viewed by entering /epa contact.
+* Sorted the help frame to make it more informative.
+* /epa info now reminds you of /rop's setting.
+
+== Version 2.7.6 (March 9th 2011) ==
+
+* Fixed the /epa cost and /epa help problem.
+* /epa cost is now /epa info, given that it tells you other things as well.
+* EPA should no longer create Saved Variable files for non-Mage characters.
+
+== Version 2.7.3 (March 6th 2011) ==
+
+* EPA will now alert you when you are running low on Rune of Portals. Use /rop <number> to set your cut-off point (the default is 5).
+* /epa cost now also tells you if you are offering return journeys.
+* /epa cost now also tells you what alert sound you are using.
+* /epa cost now displays its information in a scrollframe.
+
+== Version 2.6.0 (March 1st 2011) ==
+
+* Since WoW doesn't do it, EPA will once again tell you what new portals you can learn.
+* Now that I have finally realised the level at which portals are learned has changed, I have adjusted EPA accordingly. It now requires a level of 42 to use.
+
+== Version 2.5.12 (February 26th 2011) ==
+
+* Re-added your current location to adverts.
+* Added 2 new sounds you can use to alert you to finished cooldowns.
+	** Use /cda (1-3) to set the sound.
+	** use /cdp (1-3) to preview a sound.
+
+== Version 2.3.12 (February 20th 2011) ==
+
+* EPA now detects faction changes and will change 'Theramore' to 'Stonard' and vice versa in adverts.
+* Changed the message displayed on startup.
+* Removed startup message about requiring Level 50 to use the addon. If EPA is enabled on a mage under Level 50, it will instead tell them that all they can do is set their prices for the future.
+* Removed obsolete variable 'CooldownChecker' from TOC file.
+
+== Version 2.2.9 (February 16th 2011) ==
+
+* Fixed ready check on Theramore portal.
+* Fixed ready check on Stonard portal.
+* Fixed a slight colour problem in help.
+* Fixed /lz not working while in Shattrath.
+
+== Version 2.2.5 (February 14th 2011) ==
+
+* Removed 'icon' and 'preview' from the message displayed when you don't provide an argument for the /epa command.
+* Tidied up /epa cost (well, the code at least).
+* Changed /scp command to /sc.
+* The /lz command no longer shows Return Journey information. This is because I rapidly got sick of people whispering me and saying things like 'mages can't make portals to hyjal u noob'.
+* The /lz command no longer mentions Shattrath or Dalaran if you are in either of those cities.
+* EPA will now alert you when a portal finishes its cooldown. It will also play a sound, which can be toggled on or off by using /epa sound.
+
+== Version 2.1.0 (February 7th 2011) ==
+
+* Added ability to set own price for returns (as a percentage).
+
+== Version 2.0.0 (February 3rd 2011) ==
+
+* You can now specify a seperate cost for Shattrath portals.
+* Updated the version number to use my current system.
+* Icons have been removed from all messages.
+* EPA should now be using less memory, as it has less tasks to do, and fewer items to store.
+* The whole addon now requires a minium level of 50 to use. This is because some Mages I know wait until then before they begin to advertise a portal service. If there is intense opposition to this change, I'll consider reversing it.
+* Variables are now saved on a per-character basis. Good if you have more than one Mage.
+* Removed preview functionality.
+* Adverts now specify whether or not you do return journeys. This feature is off by default, but can be toggled via /rt.
+
+== Version 1.7.37 (January 6th 2011) ==
+
+More changes to the command formerly known as /ood:
+
+* It now works while in Dalaran.
+* It no longer produces a Lua error on use.
+* It now shows icons (not affected by /epa icons).
+
+== Version 1.7.34 (December 29th 2010) ==
+
+In response to a suggestion I received about being able to advertise portals anywhere, the following changes have been made to the /ood command:
+
+* It has been changed from /ood (Out Of Dalaran) to /lz (Leave Zone).
+* It now works in any zone (but not cities).
+* It now requires Level 50 to use (because you'll have all of the city portals by then). 
+
+The following changes have made to EPA in general:
+
+* Since I'm not sure if 1 is the General channel for everyone, I've added an option to set it. Use /gen <number>.
+
+== Version 1.7.30 (December 23rd 2010) ==
+
+* Fixed /tb command.
+* Fixed missing arguments when not specifying one via /epa.
+* Added the ability to specify what raid icon is displayed in your advert. Use /icon <name> to specify it (example: /icon square). Please note that this feature is case-sensitive.
+
+== Version 1.6.28 (December 22nd 2010) ==
+
+* Fixed Theramore price not showing up when using the /epa cost command.
+* Fixed grammar errors.
+* Tol Barad is now shown in adverts at Level 85. Use /tb <cost> to set a price for Tol Barad portals (default is 10g).
+* Added a new advert specifically designed for selling portals out of Dalaran (as a lot of Mages are doing now). Use /ood (Out Of Dalaran) to send it to the General chat channel. This advert can't be used anywhere else.
+* The /epa cost command now only displays costs for portals you can actually create.
+* Tidied up the Saved Variables.
+
+== Version 1.5.23 (December 3rd 2010) ==
+
+* Fixed 'cannot find library instance' error.
+
+== Version 1.5.22 (November 28th 2010) ==
+
+* All necessary lib files are now included with the addon.
+
+== Version 1.5.21 (November 3rd 2010) ==
+
+* EPA will now warn you if you have it enabled on a non-mage character via a message box, instead of printing a message in your chat frame.
+* Icons are now off by default for new installations.
+
+== Version 1.5.19 (October 23rd 2010) ==
+
+* Fixed all known typos.
+* The help is now shown in an Ace3-created window.
+* Adverts for Alliance mages no longer show raid icons.
+* Added an option to preview your advert.
+	** Only Level 74+ Mages can preview adverts.
+* Added an option to specify showing of raid icons in adverts.
+	** This feature is off by default.
+	** Use /epa icon to toggle it.
+	** Icons are only shown in adverts used by Mages Level 74 and above.
+
+== Version 1.3.16 (October 19th 2010) ==
+
+* EPA no longer tells you when you can learn new portals.
+* You now have to enter a denomination when entering portal prices. For example, you now have to type something like '/dala 10g'. This is because some people charge silver for portals.
+
+== Version 1.3.14 (October 13th 2010) ==
+
+* Bump TOC to 40000.
+
+== Version 1.3.13 (October 11th 2010) ==
+
+* EPA now tells you when you can learn new portals, by listening for the PLAYER_LEVEL_UP event.
+* Removed Raid Target icons from adverts.
+* Added support for Patch 4.0.1.
+
+== Version 1.3.10 (October 7th 2010) ==
+
+* Added /epa help command.
+* Fixed /ad command (again).
+* Sorry!
+
+== Version 1.2.8 (October 5th 2010) ==
+
+* Fixed 'you must be level XX' error.
+* Fixed commands not working.
+* Sorry about these constant updates.
+
+== Version 1.2.6 (October 4th 2010) ==
+
+* Changed the advert to say "<YOUR NAME>'s Portal Service" instead of "CHEAP PORTALS!"
+* Added an option to set prices for Stonard/Theramore portals (set to 0 by default).
+* Added an option to set your Trade Channel number (set to 2 by default).
+* The ad displayed changes according to your level.
+* The /ad command no longer works for players who aren't Level 35.
+
+== Version 1.0.3 (October 3rd 2010) ==
+
+* Fixed the /ad command not working.
+* The /ad command no longer works for Mages who aren't Level 74.
+
+== Version 1.0.1 (October 3rd 2010) ==
+
+* Initial Release.

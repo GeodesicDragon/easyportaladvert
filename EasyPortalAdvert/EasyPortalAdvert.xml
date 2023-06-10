@@ -1,0 +1,17 @@
+<Ui xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
+<Script file="Localization.lua"/>
+<Script file="SimpleOptions-Retail.lua"/>
+<Script file="EasyPortalAdvert.lua"/>
+<Frame name="EPA">
+	<Scripts> 
+		<OnLoad>
+			portalservice_OnLoad();
+		</OnLoad>
+	</Scripts>
+</Frame>
+<Frame name="Options">
+	<Scripts>
+		<OnLoad>OptionsFrame_OnLoad();</OnLoad>
+	</Scripts>
+</Frame>
+</Ui>

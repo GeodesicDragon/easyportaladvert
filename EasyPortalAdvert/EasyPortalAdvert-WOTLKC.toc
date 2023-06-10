@@ -1,0 +1,15 @@
+##Interface: 30401
+##Title: |cFFFFFF00Easy Portal Advert|r (Wrath)
+##Title-frFR: |cFFFFFF00Portal Facile Annonce|r
+##Title-deDE: |cFFFFFF00Einfache Portal Werbung|r
+##Notes: Helps you to advertise your portal service, and much more!
+##Notes-frFR: Il vous aide à annoncer votre service de portail, et bien plus encore!
+##Notes-deDE: Hilft Ihnen Ihr Portal-Service zu werben, und vieles mehr!
+##OptionalDeps: EPA-CooldownMonitor
+##SavedVariablesPerCharacter: EPAConfig, OtherPlaceName, AshranPlace
+##Author: GeodesicDragon
+##Version: 8.0.0
+
+Localization.lua
+EasyPortalAdvert-WOTLK.lua
+SimpleOptions-WOTLK.lua

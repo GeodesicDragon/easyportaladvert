@@ -1,0 +1,7 @@
+##Interface: 100100
+##Title: |cFFFFFF00EPA - Reagent Monitor|r (Retail)
+##Notes: Shows you how many Mage related reagents you have.
+##RequiredDeps: EasyPortalAdvert
+##Author: GeodesicDragon
+
+EPA-ReagentMonitor-Retail.lua
