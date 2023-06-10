@@ -30,8 +30,8 @@ txtPortalPrice:SetMaxLetters(3)
 txtPortalPrice:Show()
 
 txtPortalPrice:SetScript("OnShow", function(frame)
-local text = EPAConfig.PortalPrice
-		txtPortalPrice:SetText(text)
+local text = tonumber(EPAConfig.PortalPrice)
+	txtPortalPrice:SetText(tostring(text))
 end)
 
 txtPortalPrice:SetScript("OnEnter", function(self)
@@ -43,7 +43,7 @@ txtPortalPrice:SetScript("OnLeave", GameTooltip_Hide)
 txtPortalPrice:SetScript("OnHide", function(frame)
 	local n = tonumber(frame:GetText())
 	EPAConfig.PortalPrice = n
-	createadvert()
+	--createadvert()
 end)
 
 -- Trade Channel Editbox
@@ -61,8 +61,8 @@ txtTradeChannel:SetMaxLetters(3)
 txtTradeChannel:Show()
 
 txtTradeChannel:SetScript("OnShow", function(frame)
-local text = EPAConfig.TradeChannel
-		txtTradeChannel:SetText(text)
+local text = tonumber(EPAConfig.TradeChannel)
+	txtTradeChannel:SetText(tostring(text))
 end)
 
 txtTradeChannel:SetScript("OnHide", function(frame)
@@ -81,21 +81,23 @@ if IsAddOnLoaded("EPA-CooldownMonitor") == false then
 elseif IsAddOnLoaded("EPA-CooldownMonitor") == true then
 	local chkReadySound = CreateFrame("CheckButton", nil, EPAIOFrame, "OptionsBaseCheckButtonTemplate")
 	chkReadySound:SetPoint("TOPLEFT", cdmtitle, "BOTTOMLEFT", 0, -16)
-
-	if EPAConfig.ReadySound == "true" then
-		chkReadySound:SetChecked(true)
-	elseif EPAConfig.ReadySound == "false" then
-		chkReadySound:SetChecked(false)
-	end
+	
+	chkReadySound:SetScript("OnShow", function(frame)
+		if EPAConfig.ReadySound == "YES" then
+			chkReadySound:SetChecked(true)
+		elseif EPAConfig.ReadySound == "NO" then
+			chkReadySound:SetChecked(false)
+		end
+	end)
 
 	chkReadySound:SetScript("OnClick", function(frame)
 	local tick = frame:GetChecked()
 	
 	if tick == false then
-		EPAConfig.ReadySound = 'false'
+		EPAConfig.ReadySound = 'NO'
 		DEFAULT_CHAT_FRAME:AddMessage("|cFF00FFFF[" .. L["Easy Portal Advert"] .."]|r " .. L["The cooldown alert sound has been disabled."])
 	elseif tick == true then
-		EPAConfig.ReadySound = 'true'
+		EPAConfig.ReadySound = 'YES'
 		DEFAULT_CHAT_FRAME:AddMessage("|cFF00FFFF[" .. L["Easy Portal Advert"] .."]|r " .. L["The cooldown alert sound has been enabled."])
 	end
 end)
@@ -109,7 +111,7 @@ local rmtitle = EPAIOFrame:CreateFontString(nil, nil, "GameFontNormalLarge")
 	if IsAddOnLoaded("EPA-CooldownMonitor") == false then
 		rmtitle:SetPoint("TOPLEFT", cdmtitle, "BOTTOMLEFT", 0, -48)
 	elseif IsAddOnLoaded("EPA-CooldownMonitor") == true then
-		rmtitle:SetPoint("TOPLEFT", chkReadySound, "BOTTOMLEFT", 0, -48)
+		rmtitle:SetPoint("TOPLEFT", chkReadySound, "BOTTOMLEFT", 0, -16)
 	end
 rmtitle:SetText(L["Reagent Monitor"])
 
