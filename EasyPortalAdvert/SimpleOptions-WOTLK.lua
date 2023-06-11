@@ -43,7 +43,7 @@ txtPortalPrice:SetScript("OnLeave", GameTooltip_Hide)
 txtPortalPrice:SetScript("OnHide", function(frame)
 	local n = tonumber(txtPortalPrice:GetText())
 	EPAConfig.PortalPrice = n
-	--createadvert()
+	createadvert()
 end)
 
 -- Trade Channel Editbox

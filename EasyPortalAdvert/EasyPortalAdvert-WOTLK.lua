@@ -50,7 +50,7 @@ function EPAEventHandler(self, event, arg1)
 		
 		if EPAConfig.PortalPrice == "Free" then EPAConfig.PortalPrice = '0' end
 
-		--createadvert()
+		createadvert()
 	end
 end
 
@@ -94,7 +94,22 @@ function epahandler(msg)
 			DEFAULT_CHAT_FRAME:AddMessage("|cFF00FFFF[" .. L["Easy Portal Advert"] .."]|r " .. L["The cooldown alert sound has been enabled."])
 		end
 	elseif msg == L["create"] then
-		--createadvert()
+		createadvert()
 	end
 end
 
+function createadvert()
+
+-- I am currently unsure how to localise the advert, as trying to do so results in errors.
+
+local locale = GetLocale()
+
+if EPAConfig.PortalPrice == 0 then
+	EPAConfig.Advert = tostring(L["Free portals!"])
+elseif EPAConfig.PortalPrice == "PWYW" then
+	EPAConfig.Advert = tostring(L["Pay What You Want portal service available!"])
+elseif EPAConfig.PortalPrice ~= "Free" and EPAConfig.PortalPrice ~= "PWYW" then
+	EPAConfig.Advert = tostring(L["Portals available: "] .. EPAConfig.PortalPrice .. "g")
+end
+
+end
