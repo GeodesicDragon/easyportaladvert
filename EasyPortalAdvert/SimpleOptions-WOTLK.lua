@@ -26,12 +26,21 @@ txtPortalPrice:SetPoint("LEFT", lblPortalPriceText, "RIGHT", 16, 0)
 txtPortalPrice:SetAutoFocus(false)
 txtPortalPrice:SetWidth(32)
 txtPortalPrice:SetHeight(16)
-txtPortalPrice:SetMaxLetters(3)
+txtPortalPrice:SetMaxLetters(6)
 txtPortalPrice:Show()
 
-txtPortalPrice:SetScript("OnShow", function(frame)
-local text = tonumber(EPAConfig.PortalPrice)
-	txtPortalPrice:SetText(text)
+txtPortalPrice:SetScript("OnLoad", function(frame)
+
+if type(EPAConfig.PortalPrice) == "number" then
+	txtPortalPrice:SetText(tonumber(EPAConfig.PortalPrice))
+elseif type(EPAConfig.PortalPrice) ~= "number" then
+	if EPAConfig.PortalPrice == "Free" then
+		txtPortalPrice:SetText("0")
+	elseif EPAConfig.PortalPrice == "PWYW" then
+		txtPortalPrice:SetText("PWYW")
+	end
+end
+
 end)
 
 txtPortalPrice:SetScript("OnEnter", function(self)
@@ -60,7 +69,7 @@ txtTradeChannel:SetHeight(16)
 txtTradeChannel:SetMaxLetters(6)
 txtTradeChannel:Show()
 
-txtTradeChannel:SetScript("OnShow", function(frame)
+txtTradeChannel:SetScript("OnLoad", function(frame)
 local text = tonumber(EPAConfig.TradeChannel)
 	txtTradeChannel:SetText(text)
 end)
@@ -70,8 +79,28 @@ txtTradeChannel:SetScript("OnHide", function(frame)
 	EPAConfig.TradeChannel = n
 end)
 
+-- Save Settings Button
+
+local btnSaveAll = CreateFrame("Button", nil, EPAIOFrame, "UIPanelButtonTemplate")
+btnSaveAll:SetSize(192,32)
+btnSaveAll:SetPoint("TOPLEFT", lblTradeChannelText, "BOTTOMLEFT", 0, -16)
+btnSaveAll:SetScript("OnClick", function(frame)
+
+local price = txtPortalPrice:GetText()
+local trade = txtTradeChannel:GetText()
+
+EPAConfig.PortalPrice = price
+EPAConfig.TradeChannel = trade
+
+DEFAULT_CHAT_FRAME:AddMessage("|cFF00FFFF[" .. L["Easy Portal Advert"] .."]|r Settings saved.")
+
+end)
+btnSaveAll:SetText(L["Save Settings"])
+
+-- Cooldown Monitor Settings
+
 local cdmtitle = EPAIOFrame:CreateFontString(nil, nil, "GameFontNormalLarge")
-cdmtitle:SetPoint("TOPLEFT", lblTradeChannelText, "BOTTOMLEFT", 0, -16)
+cdmtitle:SetPoint("TOPLEFT", btnSaveAll, "BOTTOMLEFT", 0, -16)
 cdmtitle:SetText(L["Cooldown Monitor"])
 
 if IsAddOnLoaded("EPA-CooldownMonitor") == false then
@@ -106,6 +135,8 @@ end)
 	chkReadySoundText:SetPoint("LEFT", chkReadySound, "RIGHT", 0, 1)
 	chkReadySoundText:SetText("Play a sound when a spell finishes its cooldown")
 end
+
+-- Reagent Monitor Settings
 
 local rmtitle = EPAIOFrame:CreateFontString(nil, nil, "GameFontNormalLarge")
 rmtitle:SetPoint("TOPLEFT", cdmtitle, "BOTTOMLEFT", 0, -48)

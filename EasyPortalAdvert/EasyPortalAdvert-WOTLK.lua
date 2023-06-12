@@ -10,7 +10,7 @@ EasyPortalAdvertFrame:RegisterEvent("ADDON_LOADED")
 
 function EPAEventHandler(self, event, arg1)
 	if event == "ADDON_LOADED" and arg1 == "EasyPortalAdvert" then
-		if EPAConfig == nil then
+		if EPAConfig == "" or EPAConfig == nil then
 			EPAConfig = {
 				["PortalPrice"] = 'Free',
 				["TradeChannel"] = '2',
@@ -19,14 +19,6 @@ function EPAEventHandler(self, event, arg1)
 				["ArtifactCD"] = 'ON', -- Not relevant for WOTLK, but easier to just keep it here.
 				["FontSize"] = '12' -- Used by the Reagent Monitor plugin.
 			}
-		end
-		
-		if EPAConfig.FontSize == nil then EPAConfig.FontSize = '12' end
-				
-		if EPAConfig.ReadySound == "true" then
-			EPAConfig.ReadySound = 'YES'
-		elseif EPAConfig.ReadySound == "false" then
-			EPAConfig.ReadySound = 'NO'
 		end
 		
 		SlashCmdList["LEAVEPARTY"] = leaveparty_command
@@ -95,6 +87,17 @@ function epahandler(msg)
 		end
 	elseif msg == L["create"] then
 		createadvert()
+	elseif msg == "reset" then
+		EPAConfig = {
+			["PortalPrice"] = 'Free',
+			["TradeChannel"] = '2',
+			["ReadySound"] = 'YES',
+			["Advert"] = '',
+			["ArtifactCD"] = 'ON',
+			["FontSize"] = '12'
+		}
+		
+		DEFAULT_CHAT_FRAME:AddMessage("|cFF00FFFF[" .. L["Easy Portal Advert"] .."]|r SavedVariables have been reset to default.")
 	end
 end
 
@@ -109,7 +112,7 @@ if EPAConfig.PortalPrice == 0 then
 elseif EPAConfig.PortalPrice == "PWYW" then
 	EPAConfig.Advert = tostring(L["Pay What You Want portal service available!"])
 elseif EPAConfig.PortalPrice ~= "Free" and EPAConfig.PortalPrice ~= "PWYW" then
-	EPAConfig.Advert = tostring(L["Portals available: "] .. EPAConfig.PortalPrice .. "g")
+	EPAConfig.Advert = tostring(L["Portals available: "] .. tostring(EPAConfig.PortalPrice) .. "g")
 end
 
 end

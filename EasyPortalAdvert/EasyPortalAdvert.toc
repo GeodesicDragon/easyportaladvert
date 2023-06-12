@@ -5,7 +5,7 @@
 ##Notes: Helps you to advertise your portal service, and much more!
 ##Notes-frFR: Il vous aide à annoncer votre service de portail, et bien plus encore!
 ##Notes-deDE: Hilft Ihnen Ihr Portal-Service zu werben, und vieles mehr!
-##OptionalDeps: EPA-CooldownMonitor
+##OptionalDeps: EPA-CooldownMonitor, EPA-ReagentMonitor
 ##SavedVariablesPerCharacter: EPAConfig, OtherPlaceName, AshranPlace
 ##Author: GeodesicDragon
 ##Version: 8.0.0
