@@ -10,15 +10,53 @@ local PlainAddonTitle = AddonTitle:gsub("|c........", ""):gsub("|r", "")
 local EPAIOFrame = CreateFrame("Frame")
 EPAIOFrame.name = L["Easy Portal Advert"]
 
-local lblTitle = EPAIOFrame:CreateFontString(nil, nil, "GameFontHighlight")
-lblTitle:SetFont("Fonts\\FRIZQT__.TTF", 12)
+local lblTitle = EPAIOFrame:CreateFontString(nil, nil, "GameFontNormalLarge")
+--lblTitle:SetFont("Fonts\\FRIZQT__.TTF", 12)
 lblTitle:SetPoint("TOPLEFT", EPAIOFrame, "TOPLEFT", 12, -12)
 lblTitle:SetText(L["Easy Portal Advert"] .. " v" .. GetAddOnMetadata("EasyPortalAdvert","Version"))
+
+-- Advert Type
+
+local lblAdvertTypeText = EPAIOFrame:CreateFontString(nil, nil, "GameFontHighlight")
+lblAdvertTypeText:SetPoint("TOPLEFT", lblTitle, "BOTTOMLEFT", 0, -16)
+lblAdvertTypeText:SetText(L["Advert type:"])
+
+--local ddFontSize = CreateFrame("Frame", "GTFontSize", EPAIOFrame, "UIDropDownMenuTemplate")
+
+-- Create the dropdown, and configure its appearance
+local ddAdvertType = CreateFrame("FRAME", "EPAFontSize", EPAIOFrame, "UIDropDownMenuTemplate")
+ddAdvertType:SetPoint("LEFT", lblAdvertTypeText, "RIGHT", 0, 1)
+UIDropDownMenu_SetWidth(ddAdvertType, 128)
+UIDropDownMenu_SetText(ddAdvertType, L["Select One"])
+
+-- Create and bind the initialization function to the dropdown menu
+UIDropDownMenu_Initialize(ddAdvertType, function(self, level, menuList)
+local info = UIDropDownMenu_CreateInfo()
+	info.func = self.SetValue
+	info.text, info.arg1 = "Free Portals", "FREE"
+	UIDropDownMenu_AddButton(info)
+	info.text, info.arg1 = "Set Price", "SET"
+	UIDropDownMenu_AddButton(info)
+	info.text, info.arg1 = "Pay What You Want", "PWYW"
+	UIDropDownMenu_AddButton(info)
+end)
+
+-- Implement the function to change the font size
+function ddAdvertType:SetValue(newValue)
+	EasyPortalAdvert.AdvertType = newValue
+	DEFAULT_CHAT_FRAME:AddMessage("|cFF00AA00[" .. L["Easy Portal Advert"] .. "]|r " .. L["Advert type changed to"] .. " " .. newValue .. ".")
+	UpdateEPAIcons()
+	-- Update the text; if we merely wanted it to display newValue, we would not need to do this
+	UIDropDownMenu_SetText(ddAdvertType, EasyPortalAdvert.AdvertType)
+	-- Because this is called from a sub-menu, only that menu level is closed by default.
+	-- Close the entire menu with this next call
+	CloseDropDownMenus()
+end
 
 -- Portal Price Editbox
 
 local lblPortalPriceText = EPAIOFrame:CreateFontString(nil, nil, "GameFontHighlight")
-lblPortalPriceText:SetPoint("TOPLEFT", lblTitle, "BOTTOMLEFT", 0, -16)
+lblPortalPriceText:SetPoint("TOPLEFT", lblAdvertTypeText, "BOTTOMLEFT", 0, -16)
 lblPortalPriceText:SetText(L["Portal Price:"])
 
 local txtPortalPrice = CreateFrame("EditBox", nil, EPAIOFrame, "InputBoxTemplate")
@@ -29,29 +67,14 @@ txtPortalPrice:SetHeight(16)
 txtPortalPrice:SetMaxLetters(6)
 txtPortalPrice:Show()
 
-txtPortalPrice:SetScript("OnLoad", function(frame)
-
-if type(EPAConfig.PortalPrice) == "number" then
-	txtPortalPrice:SetText(tonumber(EPAConfig.PortalPrice))
-elseif type(EPAConfig.PortalPrice) ~= "number" then
-	if EPAConfig.PortalPrice == "Free" then
-		txtPortalPrice:SetText("0")
-	elseif EPAConfig.PortalPrice == "PWYW" then
-		txtPortalPrice:SetText("PWYW")
-	end
-end
-
+txtPortalPrice:SetScript("OnShow", function(frame)
+	local n = EasyPortalAdvert.PortalPrice
+	txtPortalPrice:SetText(n)
 end)
 
-txtPortalPrice:SetScript("OnEnter", function(self)
-	GameTooltip:SetOwner(self, "ANCHOR_TOP")
-	GameTooltip:AddLine("Set to 0 to make portals free.", 1, 1, 1)
-	GameTooltip:Show()
-end)
-txtPortalPrice:SetScript("OnLeave", GameTooltip_Hide)
 txtPortalPrice:SetScript("OnHide", function(frame)
-	local n = tonumber(txtPortalPrice:GetText())
-	EPAConfig.PortalPrice = n
+	local n = txtPortalPrice:GetText()
+	EasyPortalAdvert.PortalPrice = n
 	createadvert()
 end)
 
@@ -69,14 +92,14 @@ txtTradeChannel:SetHeight(16)
 txtTradeChannel:SetMaxLetters(6)
 txtTradeChannel:Show()
 
-txtTradeChannel:SetScript("OnLoad", function(frame)
-local text = tonumber(EPAConfig.TradeChannel)
-	txtTradeChannel:SetText(text)
+txtTradeChannel:SetScript("OnShow", function(frame)
+	local n = EasyPortalAdvert.TradeChannel
+	txtTradeChannel:SetText(n)
 end)
 
 txtTradeChannel:SetScript("OnHide", function(frame)
-	local n = tonumber(txtTradeChannel:GetText())
-	EPAConfig.TradeChannel = n
+	local n = txtTradeChannel:GetText()
+	EasyPortalAdvert.TradeChannel = n
 end)
 
 -- Save Settings Button
@@ -89,8 +112,8 @@ btnSaveAll:SetScript("OnClick", function(frame)
 local price = txtPortalPrice:GetText()
 local trade = txtTradeChannel:GetText()
 
-EPAConfig.PortalPrice = price
-EPAConfig.TradeChannel = trade
+EasyPortalAdvert.PortalPrice = price
+EasyPortalAdvert.TradeChannel = trade
 
 DEFAULT_CHAT_FRAME:AddMessage("|cFF00FFFF[" .. L["Easy Portal Advert"] .."]|r Settings saved.")
 
@@ -112,9 +135,9 @@ elseif IsAddOnLoaded("EPA-CooldownMonitor") == true then
 	chkReadySound:SetPoint("TOPLEFT", cdmtitle, "BOTTOMLEFT", 0, -16)
 	
 	chkReadySound:SetScript("OnShow", function(frame)
-		if EPAConfig.ReadySound == "YES" then
+		if EasyPortalAdvert.ReadySound == "YES" then
 			chkReadySound:SetChecked(true)
-		elseif EPAConfig.ReadySound == "NO" then
+		elseif EasyPortalAdvert.ReadySound == "NO" then
 			chkReadySound:SetChecked(false)
 		end
 	end)
@@ -123,10 +146,10 @@ elseif IsAddOnLoaded("EPA-CooldownMonitor") == true then
 	local tick = frame:GetChecked()
 	
 	if tick == false then
-		EPAConfig.ReadySound = 'NO'
+		EasyPortalAdvert.ReadySound = 'NO'
 		DEFAULT_CHAT_FRAME:AddMessage("|cFF00FFFF[" .. L["Easy Portal Advert"] .."]|r " .. L["The cooldown alert sound has been disabled."])
 	elseif tick == true then
-		EPAConfig.ReadySound = 'YES'
+		EasyPortalAdvert.ReadySound = 'YES'
 		DEFAULT_CHAT_FRAME:AddMessage("|cFF00FFFF[" .. L["Easy Portal Advert"] .."]|r " .. L["The cooldown alert sound has been enabled."])
 	end
 end)
@@ -157,17 +180,13 @@ lblEPAFontSizeText:SetText(L["Font size:"])
 --local ddFontSize = CreateFrame("Frame", "GTFontSize", EPAIOFrame, "UIDropDownMenuTemplate")
 
 -- Create the dropdown, and configure its appearance
-local ddFBSFontSize = CreateFrame("FRAME", "FBSFontSize", EPAIOFrame, "UIDropDownMenuTemplate")
-ddFBSFontSize:SetPoint("LEFT", lblEPAFontSizeText, "RIGHT", 0, 1)
-if GetLocale() == "frFR" then
-	UIDropDownMenu_SetWidth(ddFBSFontSize, 128)
-else
-	UIDropDownMenu_SetWidth(ddFBSFontSize, 96)
-end
-UIDropDownMenu_SetText(ddFBSFontSize, L["Select One"])
+local ddEPAFontSize = CreateFrame("FRAME", "EPAFontSize", EPAIOFrame, "UIDropDownMenuTemplate")
+ddEPAFontSize:SetPoint("LEFT", lblEPAFontSizeText, "RIGHT", 0, 1)
+UIDropDownMenu_SetWidth(ddEPAFontSize, 128)
+UIDropDownMenu_SetText(ddEPAFontSize, L["Select One"])
 
 -- Create and bind the initialization function to the dropdown menu
-UIDropDownMenu_Initialize(ddFBSFontSize, function(self, level, menuList)
+UIDropDownMenu_Initialize(ddEPAFontSize, function(self, level, menuList)
 local info = UIDropDownMenu_CreateInfo()
 	info.func = self.SetValue
 	info.text, info.arg1 = "12", 12
@@ -183,12 +202,12 @@ local info = UIDropDownMenu_CreateInfo()
 end)
 
 -- Implement the function to change the font size
-function ddFBSFontSize:SetValue(newValue)
-	EPAConfig.FontSize = newValue
+function ddEPAFontSize:SetValue(newValue)
+	EasyPortalAdvert.FontSize = newValue
 	DEFAULT_CHAT_FRAME:AddMessage("|cFF00AA00[" .. L["Easy Portal Advert"] .. "]|r " .. L["Font size changed to"] .. " " .. newValue .. ".")
-	UpdateFonts()
+	UpdateEPAIcons()
 	-- Update the text; if we merely wanted it to display newValue, we would not need to do this
-	UIDropDownMenu_SetText(ddFBSFontSize, EPAConfig.FontSize)
+	UIDropDownMenu_SetText(ddEPAFontSize, EasyPortalAdvert.FontSize)
 	-- Because this is called from a sub-menu, only that menu level is closed by default.
 	-- Close the entire menu with this next call
 	CloseDropDownMenus()
@@ -221,12 +240,3 @@ lblTwitter:SetText("|cFFEFC502@GeodesicDragon|r")
 -- END OF CONFIG WINDOW
 
 InterfaceOptions_AddCategory(EPAIOFrame)
-
-function EPAUpdateFonts()
-	LightFeatherIcon:SetSize(tonumber(EPAConfig.FontSize), tonumber(EPAConfig.FontSize))
-	RuneOfTeleportationIcon:SetSize(tonumber(EPAConfig.FontSize), tonumber(EPAConfig.FontSize))
-	RuneOfPortalsIcon:SetSize(tonumber(EPAConfig.FontSize), tonumber(EPAConfig.FontSize))
-	LightFeatherText:SetSize(tonumber(EPAConfig.FontSize), tonumber(EPAConfig.FontSize))
-	RuneOfTeleportationText:SetSize(tonumber(EPAConfig.FontSize), tonumber(EPAConfig.FontSize))
-	RuneOfPortalsText:SetSize(tonumber(EPAConfig.FontSize), tonumber(EPAConfig.FontSize))
-end

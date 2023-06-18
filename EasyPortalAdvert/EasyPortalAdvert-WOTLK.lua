@@ -10,13 +10,13 @@ EasyPortalAdvertFrame:RegisterEvent("ADDON_LOADED")
 
 function EPAEventHandler(self, event, arg1)
 	if event == "ADDON_LOADED" and arg1 == "EasyPortalAdvert" then
-		if EPAConfig == "" or EPAConfig == nil then
-			EPAConfig = {
+		if EasyPortalAdvert == "" or EasyPortalAdvert == nil then
+			EasyPortalAdvert = {
 				["PortalPrice"] = 'Free',
 				["TradeChannel"] = '2',
 				["ReadySound"] = 'YES',
 				["Advert"] = '',
-				["ArtifactCD"] = 'ON', -- Not relevant for WOTLK, but easier to just keep it here.
+				["AdvertType"] = 'SET',
 				["FontSize"] = '12' -- Used by the Reagent Monitor plugin.
 			}
 		end
@@ -40,7 +40,7 @@ function EPAEventHandler(self, event, arg1)
 			DEFAULT_CHAT_FRAME:AddMessage("|cFF00FFFF[" .. L["Easy Portal Advert"] .."]|r v" .. GetAddOnMetadata("EasyPortalAdvert", "Version") .. L[" loaded successfully."])
 		end
 		
-		if EPAConfig.PortalPrice == "Free" then EPAConfig.PortalPrice = '0' end
+		if EasyPortalAdvert.PortalPrice == "Free" then EasyPortalAdvert.PortalPrice = '0' end
 
 		createadvert()
 	end
@@ -61,7 +61,7 @@ function portaladvert_command()
 local lang = GetDefaultLanguage("player")
 
 if UnitLevel("player") >= 42 then
-	SendChatMessage(tostring(EPAConfig.Advert),"CHANNEL",lang,EPAConfig.TradeChannel)
+	SendChatMessage(tostring(EasyPortalAdvert.Advert),"CHANNEL",lang,EasyPortalAdvert.TradeChannel)
 else
 	return
 end
@@ -78,23 +78,23 @@ function epahandler(msg)
 		InterfaceOptionsFrame_OpenToCategory(L["Easy Portal Advert"])
 		InterfaceOptionsFrame_OpenToCategory(L["Easy Portal Advert"])
 	elseif msg == L["sound"] then
-		if EPAConfig.ReadySound == "true" then
-			EPAConfig.ReadySound = 'false'
+		if EasyPortalAdvert.ReadySound == "true" then
+			EasyPortalAdvert.ReadySound = 'false'
 			DEFAULT_CHAT_FRAME:AddMessage("|cFF00FFFF[" .. L["Easy Portal Advert"] .."]|r " .. L["The cooldown alert sound has been disabled."])
-		elseif EPAConfig.ReadySound == "false" then
-			EPAConfig.ReadySound = 'true'
+		elseif EasyPortalAdvert.ReadySound == "false" then
+			EasyPortalAdvert.ReadySound = 'true'
 			DEFAULT_CHAT_FRAME:AddMessage("|cFF00FFFF[" .. L["Easy Portal Advert"] .."]|r " .. L["The cooldown alert sound has been enabled."])
 		end
 	elseif msg == L["create"] then
 		createadvert()
 	elseif msg == "reset" then
-		EPAConfig = {
+		EasyPortalAdvert = {
 			["PortalPrice"] = 'Free',
 			["TradeChannel"] = '2',
 			["ReadySound"] = 'YES',
 			["Advert"] = '',
-			["ArtifactCD"] = 'ON',
-			["FontSize"] = '12'
+			["FontSize"] = '12',
+			["AdvertType"] = 'SET'
 		}
 		
 		DEFAULT_CHAT_FRAME:AddMessage("|cFF00FFFF[" .. L["Easy Portal Advert"] .."]|r SavedVariables have been reset to default.")
@@ -107,12 +107,12 @@ function createadvert()
 
 local locale = GetLocale()
 
-if EPAConfig.PortalPrice == 0 then
-	EPAConfig.Advert = tostring(L["Free portals!"])
-elseif EPAConfig.PortalPrice == "PWYW" then
-	EPAConfig.Advert = tostring(L["Pay What You Want portal service available!"])
-elseif EPAConfig.PortalPrice ~= "Free" and EPAConfig.PortalPrice ~= "PWYW" then
-	EPAConfig.Advert = tostring(L["Portals available: "] .. tostring(EPAConfig.PortalPrice) .. "g")
+if EasyPortalAdvert.AdvertType == "FREE" then
+	EasyPortalAdvert.Advert = tostring(L["Free portals!"])
+elseif EasyPortalAdvert.AdvertType == "PWYW" then
+	EasyPortalAdvert.Advert = tostring(L["Pay What You Want portal service available!"])
+elseif EasyPortalAdvert.AdvertType == "SET" then
+	EasyPortalAdvert.Advert = string.format(L["Portals available for %dg each!"], EasyPortalAdvert.PortalPrice)
 end
 
 end
