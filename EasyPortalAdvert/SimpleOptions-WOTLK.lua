@@ -62,18 +62,19 @@ lblPortalPriceText:SetText(L["Portal Price:"])
 local txtPortalPrice = CreateFrame("EditBox", nil, EPAIOFrame, "InputBoxTemplate")
 txtPortalPrice:SetPoint("LEFT", lblPortalPriceText, "RIGHT", 16, 0)
 txtPortalPrice:SetAutoFocus(false)
-txtPortalPrice:SetWidth(32)
+txtPortalPrice:SetWidth(64)
 txtPortalPrice:SetHeight(16)
-txtPortalPrice:SetMaxLetters(6)
+txtPortalPrice:IsNumeric(true)
 txtPortalPrice:Show()
+txtPortalPrice:Enable(true)
 
 txtPortalPrice:SetScript("OnShow", function(frame)
-	local n = EasyPortalAdvert.PortalPrice
-	txtPortalPrice:SetText(n)
+	local text = tonumber(EasyPortalAdvert.PortalPrice)
+	txtPortalPrice:SetText(text)
 end)
 
 txtPortalPrice:SetScript("OnHide", function(frame)
-	local n = txtPortalPrice:GetText()
+	local n = tonumber(txtPortalPrice:GetText())
 	EasyPortalAdvert.PortalPrice = n
 	createadvert()
 end)
@@ -87,18 +88,19 @@ lblTradeChannelText:SetText(L["Trade Channel:"])
 local txtTradeChannel = CreateFrame("EditBox", nil, EPAIOFrame, "InputBoxTemplate")
 txtTradeChannel:SetPoint("LEFT", lblTradeChannelText, "RIGHT", 16, 0)
 txtTradeChannel:SetAutoFocus(false)
-txtTradeChannel:SetWidth(32)
+txtTradeChannel:SetWidth(64)
 txtTradeChannel:SetHeight(16)
-txtTradeChannel:SetMaxLetters(6)
+txtTradeChannel:IsNumeric(true)
 txtTradeChannel:Show()
+txtTradeChannel:Enable(true)
 
 txtTradeChannel:SetScript("OnShow", function(frame)
-	local n = EasyPortalAdvert.TradeChannel
-	txtTradeChannel:SetText(n)
+	local text = tonumber(EasyPortalAdvert.TradeChannel)
+	txtTradeChannel:SetText(text)
 end)
 
 txtTradeChannel:SetScript("OnHide", function(frame)
-	local n = txtTradeChannel:GetText()
+	local n = tonumber(txtTradeChannel:GetText())
 	EasyPortalAdvert.TradeChannel = n
 end)
 
@@ -109,8 +111,8 @@ btnSaveAll:SetSize(192,32)
 btnSaveAll:SetPoint("TOPLEFT", lblTradeChannelText, "BOTTOMLEFT", 0, -16)
 btnSaveAll:SetScript("OnClick", function(frame)
 
-local price = txtPortalPrice:GetText()
-local trade = txtTradeChannel:GetText()
+local price = tonumber(txtPortalPrice:GetText())
+local trade = tonumber(txtTradeChannel:GetText())
 
 EasyPortalAdvert.PortalPrice = price
 EasyPortalAdvert.TradeChannel = trade

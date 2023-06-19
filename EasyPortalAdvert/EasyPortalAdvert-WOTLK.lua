@@ -12,7 +12,7 @@ function EPAEventHandler(self, event, arg1)
 	if event == "ADDON_LOADED" and arg1 == "EasyPortalAdvert" then
 		if EasyPortalAdvert == "" or EasyPortalAdvert == nil then
 			EasyPortalAdvert = {
-				["PortalPrice"] = 'Free',
+				["PortalPrice"] = '0',
 				["TradeChannel"] = '2',
 				["ReadySound"] = 'YES',
 				["Advert"] = '',
@@ -39,8 +39,6 @@ function EPAEventHandler(self, event, arg1)
 		else
 			DEFAULT_CHAT_FRAME:AddMessage("|cFF00FFFF[" .. L["Easy Portal Advert"] .."]|r v" .. GetAddOnMetadata("EasyPortalAdvert", "Version") .. L[" loaded successfully."])
 		end
-		
-		if EasyPortalAdvert.PortalPrice == "Free" then EasyPortalAdvert.PortalPrice = '0' end
 
 		createadvert()
 	end
@@ -89,7 +87,7 @@ function epahandler(msg)
 		createadvert()
 	elseif msg == "reset" then
 		EasyPortalAdvert = {
-			["PortalPrice"] = 'Free',
+			["PortalPrice"] = '0',
 			["TradeChannel"] = '2',
 			["ReadySound"] = 'YES',
 			["Advert"] = '',
@@ -98,6 +96,8 @@ function epahandler(msg)
 		}
 		
 		DEFAULT_CHAT_FRAME:AddMessage("|cFF00FFFF[" .. L["Easy Portal Advert"] .."]|r SavedVariables have been reset to default.")
+		
+		createadvert()
 	end
 end
 
