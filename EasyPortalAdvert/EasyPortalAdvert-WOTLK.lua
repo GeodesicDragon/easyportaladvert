@@ -12,8 +12,8 @@ function EPAEventHandler(self, event, arg1)
 	if event == "ADDON_LOADED" and arg1 == "EasyPortalAdvert" then
 		if EasyPortalAdvert == "" or EasyPortalAdvert == nil then
 			EasyPortalAdvert = {
-				["PortalPrice"] = '0',
-				["TradeChannel"] = '2',
+				["PortalPrice"] = 0,
+				["TradeChannel"] = 2,
 				["ReadySound"] = 'YES',
 				["Advert"] = '',
 				["AdvertType"] = 'SET',
@@ -87,8 +87,8 @@ function epahandler(msg)
 		createadvert()
 	elseif msg == "reset" then
 		EasyPortalAdvert = {
-			["PortalPrice"] = '0',
-			["TradeChannel"] = '2',
+			["PortalPrice"] = 0,
+			["TradeChannel"] = 2,
 			["ReadySound"] = 'YES',
 			["Advert"] = '',
 			["FontSize"] = '12',
@@ -114,5 +114,7 @@ elseif EasyPortalAdvert.AdvertType == "PWYW" then
 elseif EasyPortalAdvert.AdvertType == "SET" then
 	EasyPortalAdvert.Advert = string.format(L["Portals available for %dg each!"], EasyPortalAdvert.PortalPrice)
 end
+
+print(EasyPortalAdvert.Advert)
 
 end
